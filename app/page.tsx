@@ -1,103 +1,105 @@
-import Image from "next/image";
+import Link from "next/link"
+import { ChevronRight } from "lucide-react"
 
-export default function Home() {
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+
+import HeroSection from "@/components/hero-section"
+import CategorySection from "@/components/category-section"
+import FeaturedCars from "@/components/featured-cars"
+import TestimonialSlider from "@/components/testimonial-slider"
+import BrandSlider from "@/components/brand-slider"
+
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="flex-1">
+      <HeroSection />
+      <section className="container mx-auto px-4 py-12 md:py-16 lg:py-20">
+        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+          <div>
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Browse by Category</h2>
+            <p className="mt-2 text-muted-foreground">
+              Find your perfect ride by exploring our diverse car categories
+            </p>
+          </div>
+          <Link href="/cars" className="flex items-center text-primary hover:underline">
+            View all categories
+            <ChevronRight className="ml-1 h-4 w-4" />
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+        <CategorySection />
+      </section>
+
+      <section className="container mx-auto px-4 py-12 md:py-16 lg:py-20">
+        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+          <div>
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Featured Cars</h2>
+            <p className="mt-2 text-muted-foreground">Explore our handpicked selection of premium vehicles</p>
+          </div>
+          <Link href="/cars" className="flex items-center text-primary hover:underline">
+            View all cars
+            <ChevronRight className="ml-1 h-4 w-4" />
+          </Link>
+        </div>
+        <FeaturedCars />
+      </section>
+
+      <section className="bg-muted py-12 md:py-16 lg:py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">What Our Customers Say</h2>
+            <p className="mx-auto mt-2 max-w-2xl text-muted-foreground">
+              Hear from our satisfied customers about their experience with AutoHub
+            </p>
+          </div>
+          <div className="mt-12">
+            <TestimonialSlider />
+          </div>
+        </div>
+      </section>
+
+      <section className="container mx-auto px-4 py-12 md:py-16 lg:py-20">
+        <div className="text-center">
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Our Trusted Brands</h2>
+          <p className="mx-auto mt-2 max-w-2xl text-muted-foreground">
+            We partner with the world's leading automotive manufacturers
+          </p>
+        </div>
+        <div className="mt-12">
+          <BrandSlider />
+        </div>
+      </section>
+
+      <section className="bg-primary text-primary-foreground py-12 md:py-16 lg:py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid gap-8 md:grid-cols-2 md:gap-12">
+            <div>
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Stay Updated</h2>
+              <p className="mt-4 text-primary-foreground/90">
+                Subscribe to our newsletter to receive the latest updates on new car models, exclusive offers, and
+                automotive news.
+              </p>
+            </div>
+            <div className="flex flex-col justify-center">
+              <form className="flex flex-col gap-4 sm:flex-row">
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="bg-primary-foreground text-primary"
+                  required
+                />
+                <Button variant="secondary" type="submit">
+                  Subscribe
+                </Button>
+              </form>
+              <p className="mt-2 text-sm text-primary-foreground/70">
+                We respect your privacy. Unsubscribe at any time.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  )
 }
+
