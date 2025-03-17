@@ -13,7 +13,7 @@ const heroSlides = [
     id: 1,
     title: "Find Your Dream Car",
     description: "Explore our extensive collection of premium vehicles",
-    image: "/placeholder.svg?height=800&width=1600",
+    image: "/images/compositor.jpg",
     cta: "Browse Cars",
     link: "/cars",
   },
@@ -21,7 +21,7 @@ const heroSlides = [
     id: 2,
     title: "Luxury Redefined",
     description: "Experience the pinnacle of automotive excellence",
-    image: "/placeholder.svg?height=800&width=1600",
+    image: "/images/compositor_red.jpg",
     cta: "View Luxury Cars",
     link: "/categories/luxury",
   },
@@ -29,7 +29,7 @@ const heroSlides = [
     id: 3,
     title: "Go Electric",
     description: "Discover our range of eco-friendly electric vehicles",
-    image: "/placeholder.svg?height=800&width=1600",
+    image: "/images/compositor_blue.jpg",
     cta: "Explore Electric Cars",
     link: "/categories/electric",
   },
@@ -56,7 +56,7 @@ export default function HeroSection() {
             index === currentSlide ? "opacity-100" : "opacity-0 pointer-events-none",
           )}
         >
-          <Image src={slide.image || "/placeholder.svg"} alt={slide.title} fill priority className="object-cover" />
+          <Image src={slide.image || "/images/compositor.jpg"} alt={slide.title} fill priority className="object-cover" />
           <div className="absolute inset-0 bg-black/40" />
           <div className="relative h-full container mx-auto px-4 flex flex-col justify-center">
             <div className="max-w-2xl text-white">

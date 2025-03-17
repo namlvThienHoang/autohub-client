@@ -9,8 +9,6 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 
-import Navbar from "@/components/navbar"
-import Footer from "@/components/footer"
 import CarGrid from "@/components/car-grid"
 
 export default function CarsPage() {

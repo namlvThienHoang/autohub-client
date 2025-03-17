@@ -1,62 +1,27 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import { ChevronLeft, ChevronRight, Star } from "lucide-react"
-
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { cn } from "@/lib/utils"
-
-const testimonials = [
-  {
-    id: 1,
-    name: "Sarah Johnson",
-    role: "Business Owner",
-    content:
-      "AutoHub made finding my dream car so easy. The filtering options helped me narrow down exactly what I wanted, and the detailed specifications gave me confidence in my purchase.",
-    avatar: "/placeholder.svg?height=100&width=100",
-    rating: 5,
-  },
-  {
-    id: 2,
-    name: "Michael Chen",
-    role: "Software Engineer",
-    content:
-      "I was impressed by how smooth the entire process was. From browsing to test drive scheduling and finally purchasing, everything was seamless. Highly recommend!",
-    avatar: "/placeholder.svg?height=100&width=100",
-    rating: 5,
-  },
-  {
-    id: 3,
-    name: "Emily Rodriguez",
-    role: "Marketing Director",
-    content:
-      "The comparison feature was a game-changer for me. Being able to see different models side by side made my decision much easier. The customer service was exceptional too.",
-    avatar: "/placeholder.svg?height=100&width=100",
-    rating: 4,
-  },
-  {
-    id: 4,
-    name: "David Thompson",
-    role: "Financial Analyst",
-    content:
-      "As someone who values efficiency, I appreciated how straightforward the buying process was. The financing calculator helped me understand exactly what I could afford.",
-    avatar: "/placeholder.svg?height=100&width=100",
-    rating: 5,
-  },
-]
+import { useState } from "react";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+import { useTestimonials } from "@/hooks/use-testimonials";
 
 export default function TestimonialSlider() {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const { testimonials, isLoading, isError } = useTestimonials();
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  if (isLoading) return <p>Loading testimonials...</p>;
+  if (isError) return <p>Failed to load testimonials.</p>;
 
   const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1))
-  }
+    setCurrentIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+  };
 
   const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1))
-  }
+    setCurrentIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+  };
 
   return (
     <div className="relative">
@@ -65,7 +30,7 @@ export default function TestimonialSlider() {
           className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-          {testimonials.map((testimonial) => (
+          {testimonials.map((testimonial: any) => (
             <Card key={testimonial.id} className="min-w-full bg-background">
               <CardContent className="p-6 md:p-8">
                 <div className="flex flex-col items-center text-center">
@@ -83,7 +48,7 @@ export default function TestimonialSlider() {
                         key={i}
                         className={cn(
                           "h-5 w-5",
-                          i < testimonial.rating ? "fill-primary text-primary" : "fill-muted text-muted-foreground",
+                          i < testimonial.rating ? "fill-primary text-primary" : "fill-muted text-muted-foreground"
                         )}
                       />
                     ))}
@@ -118,12 +83,12 @@ export default function TestimonialSlider() {
         <span className="sr-only">Next testimonial</span>
       </Button>
       <div className="flex justify-center mt-6 gap-2">
-        {testimonials.map((_, index) => (
+        {testimonials.map((_: any, index: number) => (
           <button
             key={index}
             className={cn(
               "h-2 w-2 rounded-full transition-all",
-              index === currentIndex ? "bg-primary w-6" : "bg-muted",
+              index === currentIndex ? "bg-primary w-6" : "bg-muted"
             )}
             onClick={() => setCurrentIndex(index)}
           >
@@ -132,6 +97,5 @@ export default function TestimonialSlider() {
         ))}
       </div>
     </div>
-  )
+  );
 }
-

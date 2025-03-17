@@ -13,7 +13,7 @@ export default function AboutPage() {
             {/* Hero Section */}
             <div className="relative rounded-lg overflow-hidden mb-12">
                 <div className="h-[300px] md:h-[400px]">
-                    <Image src="/placeholder.svg?height=800&width=1600" alt="About AutoHub" fill className="object-cover" />
+                    <Image src="/images/compositor.jpg" alt="About AutoHub" fill className="object-cover" />
                 </div>
                 <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
                     <div className="text-center text-white max-w-3xl px-4">
