@@ -34,7 +34,7 @@ export default function CarGrid() {
       {isError && <p className="text-red-500">Failed to load cars</p>}
       {!isLoading && !isError && (
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {cars.map((car) => (
+          {cars.map((car: any) => (
             <Card key={car.id} className="overflow-hidden">
               <div className="relative">
                 <Image

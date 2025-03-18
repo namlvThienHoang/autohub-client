@@ -88,7 +88,7 @@ export default function BrandSlider() {
 
           {/* Danh sách thương hiệu */}
           <div ref={scrollContainerRef} className="flex space-x-8 overflow-x-auto py-8 scrollbar-hide">
-            {brands.map((brand) => (
+            {brands.map((brand: any) => (
               <Link
                 key={brand.id}
                 href={brand.link}

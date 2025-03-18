@@ -47,7 +47,7 @@ export default function FeaturedCars() {
               </Card>
             </div>
           ))
-          : cars?.map((car) => (
+          : cars?.map((car: any) => (
             <div key={car.id} className="min-w-[300px] max-w-[300px] snap-start">
               <Card className="h-full">
                 <div className="relative">
